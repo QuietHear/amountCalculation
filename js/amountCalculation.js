@@ -22,7 +22,9 @@ $(document).ready(() => {
         $('.form .item').each(function () {
             num += parseFloat($(this).find('input').attr('attr-num')) * parseInt($(this).find('input').val());
         });
+        num=Math.round(num*100)/100;
         $('.outPut .inner').append(`<p>第${$('.outPut .inner p').length + 1}个--><em>${num}<em></p>`);
+        $('.result').text(num);
     });
     $('.reast-all').on('click', function () {
         reastAllNum();
@@ -30,6 +32,11 @@ $(document).ready(() => {
     $('.clear-all').on('click', function () {
         reastAllNum();
         $('.outPut .inner').html('');
+    });
+    $('.copy').on('click', function () {
+        let ele = $('.result')[0];
+        ele.select();
+        document.execCommand("copy");
     });
     reastAllNum();
 })
