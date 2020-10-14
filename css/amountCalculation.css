@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  position: relative;
+}
+.form .item {
+  margin-bottom: 5px;
+}
+.form .item span {
+  display: inline-block;
+  width: 67px;
+  text-align: right;
+}
+.form .else {
+  margin-top: 10px;
+}
+.outPut {
+  border-top: 1px solid red;
+  margin-top: 5px;
+}
+.outPut .inner {
+  padding-left: 40px;
+}
+.outPut .inner p {
+  margin: 0;
+  color: red;
+}
+.outPut .inner p em {
+  color: blue;
+  font-style: normal;
+}
