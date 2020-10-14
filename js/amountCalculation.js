@@ -34,9 +34,10 @@ $(document).ready(() => {
         $('.outPut .inner').html('');
     });
     $('.copy').on('click', function () {
-        let ele = $('.result')[0];
+        let ele = document.getElementById("result");
+        console.log(ele)
         ele.select();
-        document.execCommand("copy");
+        document.execCommand("copy",false,null);
     });
     reastAllNum();
 })
