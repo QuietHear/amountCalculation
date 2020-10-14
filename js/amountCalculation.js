@@ -22,7 +22,7 @@ $(document).ready(() => {
         $('.form .item').each(function () {
             num += parseFloat($(this).find('input').attr('attr-num')) * parseInt($(this).find('input').val());
         });
-        num=Math.round(num*100)/100;
+        num = Math.round(num * 100) / 100;
         $('.outPut .inner').append(`<p>第${$('.outPut .inner p').length + 1}个--><em>${num}<em></p>`);
         $('.result').text(num);
     });
@@ -34,10 +34,12 @@ $(document).ready(() => {
         $('.outPut .inner').html('');
     });
     $('.copy').on('click', function () {
-        let ele = document.getElementById("result");
-        console.log(ele)
-        ele.select();
-        document.execCommand("copy",false,null);
+        const range = document.createRange();
+        range.selectNode(document.getElementById("result"));
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0) selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
     });
     reastAllNum();
 })
