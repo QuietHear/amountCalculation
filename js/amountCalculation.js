@@ -4,12 +4,12 @@ $(document).ready(() => {
             $(this).find('input').val(0);
         });
     }
-    $('input').on('focus', function () {
+    $('body').on('focus', 'input', function () {
         if ($(this).val() === '0') {
             $(this).val('');
         }
     });
-    $('input').on('blur', function () {
+    $('body').on('blur', 'input', function () {
         if ($(this).val() === '') {
             $(this).val(0);
         }
@@ -23,7 +23,15 @@ $(document).ready(() => {
             num += parseFloat($(this).find('input').attr('attr-num')) * parseInt($(this).find('input').val());
         });
         num = Math.round(num * 100) / 100;
-        $('.outPut .inner').append(`<p>第${$('.outPut .inner p').length + 1}个--><em>${num}<em></p>`);
+        $('.outPut .inner').append(`<p>
+        <span class="title">第${$('.outPut .inner p').length + 1}个--></span>
+        <em class="first">${num}</em>
+        +
+        <input type="number" value="0">
+        <em class="second hide"></em>
+        <span class="hide">=</span>
+        <em class="end hide">111</em>
+        </p>`);
         $('.result').text(num);
     });
     $('.reast-all').on('click', function () {
@@ -34,7 +42,17 @@ $(document).ready(() => {
         $('.outPut .inner').html('');
     });
     $('.compute-finally').on('click', function () {
-       console.log('end')
+        $('.outPut .inner p').each(function () {
+            let first = parseFloat($(this).find('.first').text()),
+                second = parseFloat($(this).find('input').val()),
+                end = Math.round((first + second) * 100) / 100
+            $(this).find('.second').text(second);
+            $(this).find('.end').text(end);
+            $(this).find('.hide').each(function () {
+                $(this).removeClass('hide');
+            });
+            $(this).find('input').addClass('hide');
+        });
     });
     reastAllNum();
 })

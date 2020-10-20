@@ -10,7 +10,7 @@
 
 <body>
     <div class="form">
-        <form>
+        <form onsubmit="return false;">
             <div class="item">
                 <span>10000元:</span>
                 <input type="number" attr-num="10000">
@@ -86,7 +86,7 @@
     </div>
     <div class="outPut">
         <p>计算结果：</p>
-        <div class="inner"></div>
+        <form class="inner" onsubmit="return false;"></form>
     </div>
     <script src="js/jquery1.9.min.js"></script>
     <script src="js/amountCalculation.js"></script>

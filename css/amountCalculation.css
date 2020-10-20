@@ -22,9 +22,18 @@ body {
 }
 .outPut .inner p {
   margin: 0;
-  color: red;
+  color: #9E9E9E;
+}
+.outPut .inner p .title {
+  color: #8bc34a;
 }
 .outPut .inner p em {
   color: blue;
   font-style: normal;
+}
+.outPut .inner p em.end {
+  color: #F44336;
+}
+.outPut .inner p .hide {
+  display: none;
 }
