@@ -33,13 +33,8 @@ $(document).ready(() => {
         reastAllNum();
         $('.outPut .inner').html('');
     });
-    $('.copy').on('click', function () {
-        const range = document.createRange();
-        range.selectNode(document.getElementById("result"));
-        const selection = window.getSelection();
-        if (selection.rangeCount > 0) selection.removeAllRanges();
-        selection.addRange(range);
-        document.execCommand("copy");
+    $('.compute-finally').on('click', function () {
+       console.log('end')
     });
     reastAllNum();
 })
